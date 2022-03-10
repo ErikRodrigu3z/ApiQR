@@ -27,7 +27,6 @@ namespace ApiQR.Controllers
             Bitmap qrCodeImage = qrCode.GetGraphic(20, Color.Black, Color.White, (Bitmap)Bitmap.FromFile(_hostEnv.WebRootPath + "/img/visual-studio-logo.png"),20);
             MemoryStream stream = new MemoryStream();
             qrCodeImage.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-
             string qr = $"<img src=\"data:image/png;base64,{Convert.ToBase64String(stream.ToArray())}\" alt=\"Red dot\" />";
 
             return qr;
